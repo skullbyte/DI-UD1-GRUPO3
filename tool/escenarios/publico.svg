@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="120" viewBox="0 0 390 120">
+  <g fill="#050203">
+    <circle cx="10" cy="40" r="20"/><circle cx="58" cy="40" r="20"/><circle cx="106" cy="40" r="20"/><circle cx="154" cy="40" r="20"/><circle cx="202" cy="40" r="20"/><circle cx="250" cy="40" r="20"/><circle cx="298" cy="40" r="20"/><circle cx="346" cy="40" r="20"/><circle cx="394" cy="40" r="20"/>
+    <path d="M-24 90Q10 50 44 90ZM24 90Q58 50 92 90ZM72 90Q106 50 140 90ZM120 90Q154 50 188 90ZM168 90Q202 50 236 90ZM216 90Q250 50 284 90ZM264 90Q298 50 332 90ZM312 90Q346 50 380 90ZM360 90Q394 50 428 90Z"/>
+    <circle cx="34" cy="70" r="22"/><circle cx="82" cy="70" r="22"/><circle cx="130" cy="70" r="22"/><circle cx="178" cy="70" r="22"/><circle cx="226" cy="70" r="22"/><circle cx="274" cy="70" r="22"/><circle cx="322" cy="70" r="22"/><circle cx="370" cy="70" r="22"/>
+    <path d="M-4 120Q34 76 72 120ZM44 120Q82 76 120 120ZM92 120Q130 76 168 120ZM140 120Q178 76 216 120ZM188 120Q226 76 264 120ZM236 120Q274 76 312 120ZM284 120Q322 76 360 120ZM332 120Q370 76 408 120Z"/>
+  </g>
+</svg>

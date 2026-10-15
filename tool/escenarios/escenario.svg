@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="400" viewBox="0 0 390 400">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#140808"/><stop offset="1" stop-color="#2A120C"/></linearGradient>
+    <linearGradient id="suelo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A2E1A"/><stop offset="1" stop-color="#2A180C"/></linearGradient>
+    <linearGradient id="telon" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4A0812"/><stop offset="0.5" stop-color="#9E1F2C"/><stop offset="1" stop-color="#6E0B14"/></linearGradient>
+  </defs>
+  <rect width="390" height="400" fill="url(#fondo)"/>
+  <!-- suelo del escenario en perspectiva -->
+  <path d="M58 256H332L390 340H0Z" fill="url(#suelo)"/>
+  <g stroke="#1A0E08" stroke-width="1.5">
+    <path d="M58 256L0 340M92 256L49 340M126 256L97 340M161 256L146 340M195 256L195 340M229 256L244 340M264 256L293 340M298 256L341 340M332 256L390 340"/>
+  </g>
+  <rect y="338" width="390" height="20" fill="#2A1208"/>
+  <!-- foco cenital (apagado; la luz va en foco.png) -->
+  <rect x="165" y="-4" width="60" height="10" fill="#1A1A1A"/><path d="M179 6H211L205 30H185Z" fill="#2A2A2A"/>
+  <!-- telones laterales recogidos -->
+  <path d="M0 0H90C70 85 40 187 70 340H0Z" fill="url(#telon)"/>
+  <path d="M20 0C24 119 12 221 22 340M45 0C44 102 30 204 44 340M68 0C60 85 40 170 58 323" stroke="#3A050C" stroke-width="3" fill="none"/>
+  <g transform="translate(390 0) scale(-1 1)">
+    <path d="M0 0H90C70 85 40 187 70 340H0Z" fill="url(#telon)"/>
+    <path d="M20 0C24 119 12 221 22 340M45 0C44 102 30 204 44 340M68 0C60 85 40 170 58 323" stroke="#3A050C" stroke-width="3" fill="none"/>
+  </g>
+  <!-- bambalinón con flecos dorados -->
+  <path d="M0 0H390V40Q292 90 195 54Q98 90 0 40Z" fill="#7A1020"/>
+  <path d="M0 40Q98 90 195 54Q292 90 390 40" stroke="#D4A64A" stroke-width="5" fill="none"/>
+  <path d="M0 40Q98 90 195 54Q292 90 390 40" stroke="#D4A64A" stroke-width="10" stroke-dasharray="3 7" fill="none" transform="translate(0 6)"/>
+  <!-- arco del proscenio -->
+  <path d="M0 0H390V400H0Z M14 18V400H376V18Z" fill-rule="evenodd" fill="#2A160C"/>
+  <path d="M14 400V18H376V400" stroke="#B8862E" stroke-width="2" fill="none"/>
+</svg>

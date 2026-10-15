@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="rayas" width="24" height="120" patternUnits="userSpaceOnUse">
+      <rect width="12" height="120" fill="#2A0A12" fill-opacity="0.8"/>
+      <path d="M18 40L24 46L18 52L12 46Z" fill="#B8862E" fill-opacity="0.18"/>
+    </pattern>
+    <linearGradient id="suelo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2416"/><stop offset="1" stop-color="#1A0E08"/></linearGradient>
+    <linearGradient id="barra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9A45A"/><stop offset="1" stop-color="#6B5020"/></linearGradient>
+    <linearGradient id="sombra" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A0306" stop-opacity="0.2"/><stop offset="0.5" stop-color="#0A0306" stop-opacity="0.75"/><stop offset="1" stop-color="#0A0306" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vineta" cx="0.5" cy="0.4" r="0.75">
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+  <rect width="390" height="844" fill="#1A070B"/>
+  <rect width="390" height="844" fill="url(#rayas)"/>
+  <!-- perchero con ropa colgada -->
+  <rect x="8" y="24" width="374" height="6" rx="3" fill="url(#barra)"/>
+  <rect x="8" y="24" width="5" height="240" fill="#6B5020"/><rect x="377" y="24" width="5" height="240" fill="#6B5020"/>
+  <g opacity="0.55" stroke-linejoin="round">
+    <g transform="translate(14 22)"><path d="M30 0L18 12H42Z" fill="none" stroke="#C9A45A" stroke-width="2"/><path d="M10 14L0 30V120H60V30L50 14Z" fill="#5A1A6E"/></g>
+    <g transform="translate(70 22)"><path d="M32 0L20 12H44Z" fill="none" stroke="#C9A45A" stroke-width="2"/><path d="M14 14L0 140H64L50 14Z" fill="#1E4E3A"/></g>
+    <g transform="translate(140 22)"><path d="M32 0L20 12H44Z" fill="none" stroke="#C9A45A" stroke-width="2"/><path d="M8 14L0 40L10 44V110H54V44L64 40L56 14Z" fill="#7A1020"/></g>
+    <g transform="translate(214 22)"><path d="M35 0L23 12H47Z" fill="none" stroke="#C9A45A" stroke-width="2"/><path d="M12 14L0 150H70L58 14Z" fill="#2A3A6E"/><path d="M35 14V150" stroke="#D4A64A" stroke-width="3"/></g>
+    <g transform="translate(292 22)"><path d="M32 0L20 12H44Z" fill="none" stroke="#C9A45A" stroke-width="2"/><path d="M10 14L0 34V100H64V34L54 14Z" fill="#6B4528"/><rect y="60" width="64" height="8" fill="#2A1810"/></g>
+  </g>
+  <!-- espejo de camerino con bombillas -->
+  <g transform="translate(300 380)" opacity="0.5">
+    <rect width="120" height="160" rx="8" fill="#3A2416"/><rect x="12" y="12" width="96" height="136" rx="4" fill="#4A5868" fill-opacity="0.5"/>
+    <g fill="#FFE7A8"><circle cx="6" cy="20" r="5"/><circle cx="6" cy="60" r="5"/><circle cx="6" cy="100" r="5"/><circle cx="6" cy="140" r="5"/></g>
+  </g>
+  <!-- suelo de tablones -->
+  <rect y="614" width="390" height="230" fill="url(#suelo)"/>
+  <g fill="#000" fill-opacity="0.4"><rect y="614" width="390" height="2"/><rect y="654" width="390" height="2"/><rect y="694" width="390" height="2"/><rect y="734" width="390" height="2"/><rect y="774" width="390" height="2"/><rect y="814" width="390" height="2"/></g>
+  <!-- ropa tirada por el suelo -->
+  <g transform="translate(0 594)">
+    <path d="M20 70C10 50 60 40 90 52C120 40 150 60 130 78C110 92 40 92 20 70Z" fill="#2A3A6E"/>
+    <path d="M40 62Q70 56 100 64" stroke="#D4A64A" stroke-width="2" fill="none"/>
+    <path d="M170 40H186V74H206V86H170Z" fill="#4A2A18"/><path d="M196 44H212V74H232V86H196Z" fill="#3A2012"/>
+    <ellipse cx="300" cy="80" rx="46" ry="10" fill="#1E1416"/><path d="M270 80Q272 46 300 44Q328 46 330 80Z" fill="#2A1A14"/>
+    <path d="M276 70H324" stroke="#7A1020" stroke-width="5"/><path d="M318 60Q340 30 352 46" stroke="#D4A64A" stroke-width="3" fill="none"/>
+    <path d="M120 100C100 86 170 80 200 92C220 100 180 112 150 110Z" fill="#7A1020"/>
+  </g>
+  <rect width="390" height="844" fill="url(#vineta)"/>
+  <rect width="390" height="260" fill="url(#sombra)"/>
+</svg>

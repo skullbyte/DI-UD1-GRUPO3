@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1C100C"/><stop offset="0.6" stop-color="#120A0D"/><stop offset="1" stop-color="#0A0506"/>
+    </linearGradient>
+    <linearGradient id="zocalo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1810"/><stop offset="1" stop-color="#120A06"/>
+    </linearGradient>
+    <radialGradient id="halo"><stop offset="0" stop-color="#FFCF7A" stop-opacity="0.35"/><stop offset="1" stop-color="#FFCF7A" stop-opacity="0"/></radialGradient>
+    <linearGradient id="telon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3A050C"/><stop offset="0.35" stop-color="#7A1020"/><stop offset="0.55" stop-color="#4A0812"/><stop offset="0.8" stop-color="#8E1B26"/><stop offset="1" stop-color="#2A0308"/>
+    </linearGradient>
+    <radialGradient id="vineta" cx="0.5" cy="0.4" r="0.75">
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.75"/>
+    </radialGradient>
+    <pattern id="tablones" width="28" height="844" patternUnits="userSpaceOnUse"><rect width="1.5" height="844" fill="#000" fill-opacity="0.35"/></pattern>
+  </defs>
+  <rect width="390" height="844" fill="url(#bg)"/>
+  <rect width="390" height="844" fill="url(#tablones)"/>
+  <rect y="624" width="390" height="220" fill="url(#zocalo)"/>
+  <!-- bombillas colgantes -->
+  <circle cx="70" cy="130" r="110" fill="url(#halo)"/>
+  <circle cx="300" cy="100" r="110" fill="url(#halo)"/>
+  <rect x="70" width="1.5" height="120" fill="#000"/><rect x="65" y="114" width="12" height="8" fill="#3A2A1A"/><ellipse cx="71" cy="129" rx="7" ry="9" fill="#FFE7A8"/>
+  <rect x="300" width="1.5" height="90" fill="#000"/><rect x="295" y="84" width="12" height="8" fill="#3A2A1A"/><ellipse cx="301" cy="99" rx="7" ry="9" fill="#FFE7A8"/>
+  <!-- telón lateral izquierdo -->
+  <path d="M0 0H64C58 84 70 186 51 304C38 422 61 523 48 844H0Z" fill="url(#telon)" opacity="0.85"/>
+  <!-- cuerdas y sacos de arena (tramoya) -->
+  <g fill="#5A4630">
+    <rect x="340" width="2" height="560" fill="#8C6A44" fill-opacity="0.7"/><path d="M333 566C331 562 351 562 349 566L352 588C353 594 329 594 330 588Z"/>
+    <rect x="360" width="2" height="640" fill="#8C6A44" fill-opacity="0.7"/><path d="M353 646C351 642 371 642 369 646L372 668C373 674 349 674 350 668Z"/>
+    <rect x="326" width="2" height="700" fill="#8C6A44" fill-opacity="0.7"/><path d="M319 706C317 702 337 702 335 706L338 728C339 734 315 734 316 728Z"/>
+  </g>
+  <!-- cartel de estreno -->
+  <g transform="translate(300 210) rotate(-4)" opacity="0.35">
+    <rect width="70" height="96" rx="3" fill="#2A1A14" stroke="#B8862E" stroke-width="2"/>
+    <circle cx="26" cy="40" r="16" fill="#D4A64A"/><circle cx="46" cy="52" r="16" fill="#8E1B26"/>
+  </g>
+  <!-- cajas de atrezo y baúl -->
+  <g opacity="0.6" stroke="#2A1810" stroke-width="3">
+    <rect x="250" y="654" width="90" height="70" fill="#5C3A22"/><path d="M250 654L340 724M340 654L250 724"/>
+    <rect x="270" y="614" width="60" height="40" fill="#6B4528"/>
+  </g>
+  <g opacity="0.55">
+    <path d="M60 704Q120 668 180 704V754H60Z" fill="#4A2A18"/>
+    <rect x="60" y="718" width="120" height="6" fill="#B8862E"/><rect x="112" y="714" width="16" height="16" rx="2" fill="#D4A64A"/>
+  </g>
+  <!-- caja grande oscura (antes en primer plano, ahora detrás del contenido) -->
+  <g stroke="#140C06" stroke-width="5">
+    <rect x="-40" y="744" width="120" height="90" fill="#2A1A10"/><path d="M-40 744L80 834M80 744L-40 834"/>
+  </g>
+  <rect width="390" height="844" fill="url(#vineta)"/>
+</svg>
