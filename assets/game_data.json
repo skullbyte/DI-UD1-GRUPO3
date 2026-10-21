@@ -1,0 +1,90 @@
+{
+  "razas": [
+    {
+      "nombre": "Humano",
+      "descripcion": "Versátiles y ambiciosos, adaptables a cualquier situación.",
+      "imagen": "assets/images/humano.png"
+    },
+    {
+      "nombre": "Elfo",
+      "descripcion": "Seres antiguos y ágiles, en sintonía con la magia y la naturaleza.",
+      "imagen": "assets/images/elfo.png"
+    },
+    {
+      "nombre": "Enano",
+      "descripcion": "Robustos y resistentes, grandes artesanos de las montañas.",
+      "imagen": "assets/images/enano.png"
+    },
+    {
+      "nombre": "Orco",
+      "descripcion": "Fuertes y fieros, con un espíritu indomable para el combate.",
+      "imagen": "assets/images/orco.png"
+    }
+  ],
+  "clases": [
+    {
+      "nombre": "Guerrero",
+      "descripcion": "Maestros del combate cuerpo a cuerpo y la defensa.",
+      "imagen": "assets/images/clases/guerrero.png"
+    },
+    {
+      "nombre": "Mago",
+      "descripcion": "Conocedores de las artes arcanas y poderosos hechizos.",
+      "imagen": "assets/images/clases/mago.png"
+    },
+    {
+      "nombre": "Pícaro",
+      "descripcion": "Ágiles, sigilosos y letales en el combate con ventajas.",
+      "imagen": "assets/images/clases/picaro.png"
+    },
+    {
+      "nombre": "Clérigo",
+      "descripcion": "Devotos guerreros sanadores bendecidos con magia divina.",
+      "imagen": "assets/images/clases/clerigo.png"
+    }
+  ],
+  "objetos": [
+    {
+      "nombre": "Espada Larga",
+      "tipo": "Arma",
+      "bono": "Fuerza",
+      "descripcion": "Acero templado y equilibrado, fiel compañero de los duelos.",
+      "imagen": "assets/images/objetos/espada_larga.png"
+    },
+    {
+      "nombre": "Bastón Arcano",
+      "tipo": "Arma",
+      "bono": "Inteligencia",
+      "descripcion": "Canaliza la energía arcana a través de su cristal.",
+      "imagen": "assets/images/objetos/baston_arcano.png"
+    },
+    {
+      "nombre": "Dagas Gemelas",
+      "tipo": "Arma",
+      "bono": "Agilidad",
+      "descripcion": "Dos hojas ligeras para golpear antes de que te vean.",
+      "imagen": "assets/images/objetos/dagas_gemelas.png"
+    },
+    {
+      "nombre": "Armadura de Placas",
+      "tipo": "Defensa",
+      "bono": "Constitución",
+      "descripcion": "Pesada, ruidosa y casi impenetrable.",
+      "imagen": "assets/images/objetos/armadura_placas.png"
+    },
+    {
+      "nombre": "Amuleto de Sabiduría",
+      "tipo": "Accesorio",
+      "bono": "Sabiduría",
+      "descripcion": "Susurra consejos de antiguos sabios a quien lo porta.",
+      "imagen": "assets/images/objetos/amuleto_sabiduria.png"
+    },
+    {
+      "nombre": "Capa Élfica",
+      "tipo": "Accesorio",
+      "bono": "Agilidad",
+      "descripcion": "Tejida con hilo de luna, se funde con las sombras.",
+      "imagen": "assets/images/objetos/capa_elfica.png"
+    }
+  ]
+}
