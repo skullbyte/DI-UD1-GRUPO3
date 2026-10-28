@@ -17,9 +17,9 @@ class CharacterData {
   Map<String, dynamic>? characterClass;
   Map<String, dynamic>? equipment;
 
-  // Atributo -> valor. Todos empiezan en 10.
-  Map<String, int> physical = {'Fuerza': 10, 'Agilidad': 10, 'Constitución': 10};
-  Map<String, int> mental = {'Inteligencia': 10, 'Sabiduría': 10, 'Carisma': 10};
+  // Atributo -> valor. Todos empiezan en baseValue (10).
+  Map<String, int> physical = {'Fuerza': baseValue, 'Agilidad': baseValue, 'Constitución': baseValue};
+  Map<String, int> mental = {'Inteligencia': baseValue, 'Sabiduría': baseValue, 'Carisma': baseValue};
 
   /// Puntos que quedan en un grupo: 15 menos lo que cada atributo está por encima de 10.
   int pointsAvailable(Map<String, int> group) {
