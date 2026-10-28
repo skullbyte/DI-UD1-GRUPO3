@@ -20,8 +20,8 @@ class Screen1Identity extends StatefulWidget {
 }
 
 class _Screen1IdentityState extends State<Screen1Identity> {
-  late final TextEditingController _nameController;
-  late final TextEditingController _bioController;
+  late TextEditingController _nameController;
+  late TextEditingController _bioController;
   List<dynamic> _razas = [];
 
   @override
@@ -34,7 +34,7 @@ class _Screen1IdentityState extends State<Screen1Identity> {
   }
 
   Future<void> _loadRazas() async {
-    final razas = await GameData.razas();
+    final razas = await loadSection('razas');
     setState(() => _razas = razas);
   }
 
@@ -43,10 +43,6 @@ class _Screen1IdentityState extends State<Screen1Identity> {
     _nameController.dispose();
     _bioController.dispose();
     super.dispose();
-  }
-
-  void _selectRace(Map<String, dynamic> raza) {
-    setState(() => widget.character.race = raza);
   }
 
   void _continue() {
@@ -66,29 +62,20 @@ class _Screen1IdentityState extends State<Screen1Identity> {
   @override
   Widget build(BuildContext context) {
     final race = widget.character.race;
+    // Dos tarjetas por fila: ancho de pantalla menos márgenes (16 + 16) y hueco central (16).
+    final cardWidth = (MediaQuery.of(context).size.width - 48) / 2;
+
     return StageScaffold(
-      fondo: 'assets/images/escenarios/backstage.png',
-      primerPlano: [
-        Positioned(left: -10, top: 0, width: 28, child: Image.asset('assets/images/escenarios/cuerda.png')),
-        Positioned(
-          right: 0,
-          top: 0,
-          bottom: 0,
-          width: 16,
-          child: Image.asset('assets/images/escenarios/bambalina.png', fit: BoxFit.fill),
+      background: 'assets/images/escenarios/backstage.png',
+      buttons: [
+        Expanded(
+          child: GoldButton(
+            text: widget.editMode ? 'GUARDAR CAMBIOS' : 'IR AL VESTIDOR',
+            icon: widget.editMode ? Icons.check : Icons.arrow_forward,
+            onPressed: _continue,
+          ),
         ),
       ],
-      bottomBar: ActionBar(
-        children: [
-          Expanded(
-            child: TheatreButton(
-              text: widget.editMode ? 'GUARDAR CAMBIOS' : 'IR AL VESTIDOR',
-              icon: widget.editMode ? Icons.check : Icons.arrow_forward,
-              onPressed: _continue,
-            ),
-          ),
-        ],
-      ),
       children: [
         const ActHeader(
           act: 'ACTO I · BACKSTAGE',
@@ -101,59 +88,45 @@ class _Screen1IdentityState extends State<Screen1Identity> {
         const SizedBox(height: 6),
         TextField(
           controller: _nameController,
-          style: AppText.cuerpo,
           maxLength: 24,
-          textCapitalization: TextCapitalization.words,
           decoration: const InputDecoration(hintText: 'Aldric Tramoya', counterText: ''),
-          onChanged: (value) => setState(() => widget.character.name = value),
+          onChanged: (value) => widget.character.name = value,
         ),
         const SizedBox(height: 16),
         const Text('Biografía', style: AppText.etiqueta),
         const SizedBox(height: 6),
+        // TextField multilínea: de 3 a 5 líneas visibles.
         TextField(
           controller: _bioController,
-          style: AppText.cuerpo,
           minLines: 3,
           maxLines: 5,
-          keyboardType: TextInputType.multiline,
           decoration: const InputDecoration(hintText: 'Criado entre bambalinas de un teatro ambulante...'),
           onChanged: (value) => widget.character.biography = value,
         ),
         const SectionTitle('ELIGE TU RAZA'),
-        if (_razas.isEmpty)
-          const Padding(
-            padding: EdgeInsets.all(24),
-            child: Center(child: CircularProgressIndicator(color: AppColors.oro)),
-          )
-        else
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final cardWidth = (constraints.maxWidth - 16) / 2;
-              return Wrap(
-                spacing: 16,
-                runSpacing: 16,
-                children: [
-                  for (final raza in _razas)
-                    RaceCard(
-                      raza: raza as Map<String, dynamic>,
-                      width: cardWidth,
-                      selected: race?['nombre'] == raza['nombre'],
-                      onTap: () => _selectRace(raza),
-                    ),
-                ],
-              );
-            },
-          ),
+        // Wrap coloca las tarjetas en filas y salta de línea cuando no caben.
+        Wrap(
+          spacing: 16,
+          runSpacing: 16,
+          children: [
+            for (final raza in _razas)
+              RaceCard(
+                raza: raza,
+                width: cardWidth,
+                selected: race?['nombre'] == raza['nombre'],
+                onTap: () => setState(() => widget.character.race = raza),
+              ),
+          ],
+        ),
         if (race != null) ...[
           const SizedBox(height: 16),
-          TheatrePanel(
-            borderColor: AppColors.oro.withValues(alpha: 0.6),
+          Panel(
+            borderColor: AppColors.oro,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Has elegido: ${race['nombre']}', style: AppText.nombreOpcion.copyWith(color: AppColors.oroClaro)),
-                const SizedBox(height: 6),
-                Text(race['descripcion'], style: AppText.cuerpo.copyWith(fontSize: 14)),
+                Text('Has elegido: ${race['nombre']}', style: AppText.opcion.copyWith(color: AppColors.oroClaro)),
+                Text(race['descripcion'], style: AppText.cuerpo),
               ],
             ),
           ),
@@ -163,7 +136,7 @@ class _Screen1IdentityState extends State<Screen1Identity> {
   }
 }
 
-/// Tarjeta de raza (componente "Tarjeta/Raza"): retrato, nombre y descripción.
+/// Tarjeta de raza: imagen, nombre y descripción. Si está elegida, borde dorado y ✓ encima.
 class RaceCard extends StatelessWidget {
   final Map<String, dynamic> raza;
   final double width;
@@ -178,62 +151,26 @@ class RaceCard extends StatelessWidget {
       onTap: onTap,
       child: Stack(
         children: [
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
+          Container(
             width: width,
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 12),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: selected
-                  ? AppColors.telonRojoOscuro.withValues(alpha: 0.95)
-                  : AppColors.superficie.withValues(alpha: 0.92),
+              color: selected ? AppColors.seleccion : AppColors.superficie,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: selected ? AppColors.oroClaro : AppColors.superficieBorde,
-                width: selected ? 2 : 1,
-              ),
-              boxShadow: selected
-                  ? [BoxShadow(color: AppColors.oroClaro.withValues(alpha: 0.35), blurRadius: 18)]
-                  : null,
+              border: Border.all(color: selected ? AppColors.oroClaro : AppColors.borde, width: selected ? 2 : 1),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 110,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    gradient: RadialGradient(
-                      colors: [selected ? const Color(0xFF8E1B26) : const Color(0xFF4A2A1C), const Color(0xFF1A0F0C)],
-                    ),
-                  ),
-                  alignment: Alignment.bottomCenter,
-                  child: Opacity(opacity: selected ? 1 : 0.6, child: Image.asset(raza['imagen'], height: 100)),
-                ),
+                Center(child: Image.asset(raza['imagen'], height: 100)),
                 const SizedBox(height: 6),
-                Text(
-                  raza['nombre'],
-                  style: AppText.nombreOpcion.copyWith(
-                    fontSize: 16,
-                    color: selected ? AppColors.oroClaro : AppColors.crema,
-                  ),
-                ),
-                const SizedBox(height: 2),
+                Text(raza['nombre'], style: AppText.opcion),
                 Text(raza['descripcion'], style: AppText.descripcion, maxLines: 3, overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
           if (selected)
-            Positioned(
-              top: 14,
-              right: 14,
-              child: Container(
-                width: 26,
-                height: 26,
-                decoration: const BoxDecoration(color: AppColors.oro, shape: BoxShape.circle),
-                child: const Icon(Icons.check, size: 18, color: AppColors.oscuro),
-              ),
-            ),
+            const Positioned(top: 12, right: 12, child: Icon(Icons.check_circle, color: AppColors.oro, size: 28)),
         ],
       ),
     );

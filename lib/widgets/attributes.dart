@@ -46,7 +46,10 @@ class AttributeBadge extends StatelessWidget {
             child: Container(
               width: 56,
               height: 56,
-              decoration: BoxDecoration(color: AppColors.fisico, border: Border.all(color: color, width: 2)),
+              decoration: BoxDecoration(
+                color: AppColors.fisico,
+                border: Border.all(color: color, width: 2),
+              ),
             ),
           )
         : Container(
@@ -68,7 +71,10 @@ class AttributeBadge extends StatelessWidget {
             height: 82,
             child: Stack(
               alignment: Alignment.center,
-              children: [shape, Icon(attributeIcons[name], color: Colors.white, size: 30)],
+              children: [
+                shape,
+                Icon(attributeIcons[name], color: Colors.white, size: 30),
+              ],
             ),
           ),
           const SizedBox(height: 6),

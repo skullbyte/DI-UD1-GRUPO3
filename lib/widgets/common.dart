@@ -124,7 +124,7 @@ class SectionTitle extends StatelessWidget {
       child: Row(
         children: [
           Expanded(child: Text(text, style: AppText.seccion)),
-          if (trailing != null) trailing!,
+          ?trailing,
         ],
       ),
     );
